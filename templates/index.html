@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Forecasting</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sales Forecasting App</h1>
+
+        <form action="/predict" method="post">
+            <label>Store:</label>
+            <select name="Store">
+                {% for i in range(1, 46) %}
+                    <option value="{{ i }}">Store {{ i }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Dept:</label>
+            <select name="Dept">
+                {% for i in range(1, 100) %}
+                    <option value="{{ i }}">Dept {{ i }}</option>
+                {% endfor %}
+            </select>
+
+            <label>IsHoliday (0 = No, 1 = Yes):</label>
+            <select name="IsHoliday">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label>MarkDown1:</label>
+            <input type="number" step="0.01" name="MarkDown1" required>
+
+            <label>MarkDown2:</label>
+            <input type="number" step="0.01" name="MarkDown2" required>
+
+            <label>MarkDown3:</label>
+            <input type="number" step="0.01" name="MarkDown3" required>
+
+            <label>MarkDown4:</label>
+            <input type="number" step="0.01" name="MarkDown4" required>
+
+            <label>MarkDown5:</label>
+            <input type="number" step="0.01" name="MarkDown5" required>
+
+            <label>Type (A/B/C):</label>
+            <select name="Type">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+
+            <label>Size:</label>
+            <input type="number" name="Size" required>
+
+            <label>Week:</label>
+            <input type="number" name="Week" required>
+
+            <label>Month:</label>
+            <input type="number" name="Month" required>
+
+            <button type="submit">Predict Sales</button>
+             {% if prediction %}
+            <div class="signup-link">
+            <p><strong><h3>Predicted Weekly Sales:</h3></strong> {{ prediction }}</p>
+          </div>
+          {% endif %}
+          </form>
+    </div>
+</body>
+</html>

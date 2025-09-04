@@ -1,0 +1,35 @@
+# Virtual envs
+env/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints
+
+# Project data/artifacts
+data/
+*.csv
+*.parquet
+mlruns/
+mlflow.db
+artifacts/
+models/
+
+# Model files (use Git LFS or external storage)
+*.pkl
+*.joblib
+*.h5
+*.pt
+
+# Secrets
+.env
+*.key
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
